@@ -15,6 +15,10 @@
                 return;
             }
             var idPostfix = wmdinput.attr('data-id-postfix');
+            // If the field doesn't exist, don't continue.
+            if ($('#wmd-input-' + idPostfix).length == 0) {
+                return;
+            }
 
             var converter = Markdown.getSharedSecretConverter();
             var showHelp = function () {
