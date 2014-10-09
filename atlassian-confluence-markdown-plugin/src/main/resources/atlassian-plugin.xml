@@ -1,0 +1,39 @@
+<atlassian-plugin key="com.atlassian.labs.markdown.confluence" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="com.atlassian.labs.markdown.confluence.i18n"/>
+
+    <resource type="download" name="images/" location="images"/>
+
+    <resource key="icons" name="icons/" type="download" location="/icons"/>
+
+
+    <resource type="download" name="markdown.png" location="icons/markdown.png">
+        <param name="content-type" value="image/png"/>
+    </resource>
+
+    <xhtml-macro key="atlassian.markdown.macro.xhtml"
+                 name="markdown-xhtml"
+                 documentation-url="help.markdown.macro"
+                 icon="/download/resources/com.atlassian.labs.markdown.confluence/markdown.png"
+                 class="com.atlassian.labs.markdown.confluence.ConfluenceMarkdownXhtmlMacro">
+
+        <description>Allows the use of Markdown within a Confluence page.</description>
+
+        <!-- Provides help text for the Confluence notation guide. -->
+        <resource type="velocity" name="help" location="templates/markdown-macro-help.vm">
+            <param name="help-section" value="confluence"/>
+        </resource>
+
+        <!-- Specifies which macro browser category this macro should display in. -->
+        <category name="development"/>
+
+        <parameters/>
+    </xhtml-macro>
+
+
+</atlassian-plugin>
